@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thailand Traffic Detector</title>
+  <style>
+    /* Reset body margin */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Full-screen map container */
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #map {
+        height: 80vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #map {
+        height: 70vh;
+      }
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao"></script>
+  <script>
+    function initMap() {
+      const thailand = { lat: 13.736717, lng: 100.523186 }; // Center: Bangkok
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: thailand,
+      });
+
+      const trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map);
+    }
+  </script>
+</head>
+<body onload="initMap()">
+  <div id="map"></div>
+</body>
+</html>
